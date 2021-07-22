@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	ft_atoi_sifr(char *viv, int k, int m)
+static long int	ft_atoi_sifr(char *viv, int k, int m)
 {
 	unsigned long long	res;
 	unsigned long long	c;
@@ -29,14 +29,15 @@ static int	ft_atoi_sifr(char *viv, int k, int m)
 		return (-1);
 	if (res > 9223372036854775807 && (m == -1))
 		return (0);
-	return (res);
+	return ((long int)res);
 }
 
-int	ft_atoi(char *str)
+long int	ft_atoi(char *str)
 {
-	int		m;
-	int		s;
-	char	cifr[27];
+	int			m;
+	int			s;
+	long int	dd;
+	char		cifr[27];
 
 	m = 1;
 	s = 0;
@@ -54,6 +55,7 @@ int	ft_atoi(char *str)
 		str++;
 		s++;
 	}
-	m = ft_atoi_sifr(cifr, s, m) * m;
-	return (m);
+	dd = ft_atoi_sifr(cifr, s, m);
+	dd = dd * m;
+	return (dd);
 }
