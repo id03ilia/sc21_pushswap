@@ -64,5 +64,6 @@ void		free_and_error(t_A_stack **a);
 void		free_mall_and_error(t_A_stack **a, char **mas_numb, int r);
 t_A_stack	*create_steakA(int argc, char **argv);
 void		dublikat(t_A_stack **a);
+void		check_str_eof(char *str);
 
 #endif

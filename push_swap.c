@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+void	check_str_eof(char *str)
+{
+	if (str[0] == '\0')
+		error(-1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_A_stack	*a;

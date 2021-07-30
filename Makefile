@@ -19,6 +19,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS) $(HEADER)
 			gcc $(OBJS) -o $(NAME)
 
+
 %.o	:	%.c
 			gcc ${FLAG} -c $< -o $@
 

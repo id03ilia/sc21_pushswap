@@ -36,6 +36,7 @@ static void	parser_str(t_A_stack **a, char *str)
 	long int	d;
 	t_A_stack	*tempa;
 
+	check_str_eof(str);
 	mas_numb = ft_split(str, ' ', &strok);
 	if (!mas_numb)
 		error(-1);
