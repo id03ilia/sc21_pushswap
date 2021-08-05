@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mark_and_BtoA.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:06:40 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:06:41 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	stB_to_stA(t_A_stack *min_b, t_A_stack **a, t_A_stack **b)
@@ -7,10 +19,10 @@ static void	stB_to_stA(t_A_stack *min_b, t_A_stack **a, t_A_stack **b)
 
 	if (min_b->razmtk2 > 0)
 		while (min_b->razmtk2-- > 0)
-			rr(a, b);
+			rr(a, b, 1);
 	else
 		while (min_b->razmtk2++ < 0)
-			rrr(a, b);
+			rrr(a, b, 1);
 	b_j = min_b->marker;
 	j = min_b->marker2;
 	if (b_j > 0)
@@ -25,7 +37,7 @@ static void	stB_to_stA(t_A_stack *min_b, t_A_stack **a, t_A_stack **b)
 	else
 		while (j++ < 0)
 			rra(a, 1);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	mark_and_BtoA(t_A_stack **a, t_A_stack **b, int s)

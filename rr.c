@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rr.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:08:11 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:08:12 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rra(t_A_stack **a, int y)
@@ -58,9 +70,10 @@ void	rrb(t_A_stack **b, int y)
 	}
 }
 
-void	rrr(t_A_stack **a, t_A_stack **b)
+void	rrr(t_A_stack **a, t_A_stack **b, int i)
 {
 	rra(a, 0);
 	rrb(b, 0);
-	write(1, "rrr\n", 4);
+	if (i == 1)
+		write(1, "rrr\n", 4);
 }

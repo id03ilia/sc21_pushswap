@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   st_B_markirovka.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:08:46 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:08:47 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	st_B_mark_p1(t_A_stack **a, t_A_stack *tpb)
@@ -54,7 +66,7 @@ static int	st_B_mark_p2(t_A_stack **a, t_A_stack *tmb, int j_min)
 
 static void	pozitionInStB(t_A_stack *temb, int b_j, int s_b)
 {
-	if (b_j > s_b / 2)
+	if (b_j > (s_b / 2 + s_b % 2))
 		b_j = (s_b - b_j) * -1;
 	temb->marker = b_j;
 }

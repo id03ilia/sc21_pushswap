@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:07:07 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:07:08 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	check_str_eof(char *str)
@@ -14,7 +26,7 @@ int	main(int argc, char **argv)
 	t_A_stack	*t2;
 	int			i;
 
-	a = create_steakA(argc, argv);
+	a = create_steakA(argc, argv, &a);
 	dublikat(&a);
 	index_mas_A(&a);
 	t = razmtka1(&a);

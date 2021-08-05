@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_steakA.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:05:12 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:05:13 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	ft_isspace(int c)
@@ -66,28 +78,28 @@ static void	parser_int(t_A_stack **a, int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (digit(argv[i]) == 0)
-			free_and_error(a);
-		d = ft_atoi(argv[i]);
-		if ((d > 2147483647) || (d < -2147483648))
-			free_and_error(a);
-		tempa = ft_lstnew((int)d);
-		if (tempa == NULL)
-			free_and_error(a);
-		ft_lstadd_back(a, tempa);
-		i++;
+		if (ft_strnstr(argv[i], " ", ft_strlen(argv[i])))
+			parser_str(a, argv[i++]);
+		else
+		{
+			if (digit(argv[i]) == 0)
+				free_and_error(a);
+			d = ft_atoi(argv[i]);
+			if ((d > 2147483647) || (d < -2147483648))
+				free_and_error(a);
+			tempa = ft_lstnew((int) d);
+			if (tempa == NULL)
+				free_and_error(a);
+			ft_lstadd_back(a, tempa);
+			i++;
+		}
 	}
 }
 
-t_A_stack	*create_steakA(int argc, char **argv)
+t_A_stack	*create_steakA(int argc, char **argv, t_A_stack	**a)
 {
-	t_A_stack	*a;
-
 	if (argc == 1)
 		exit (1);
-	if (argc == 2 && !digit(argv[1]))
-		parser_str(&a, argv[1]);
-	else
-		parser_int(&a, argc, argv);
-	return (a);
+	parser_int(a, argc, argv);
+	return (*a);
 }

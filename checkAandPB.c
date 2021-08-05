@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checkAandPB.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:05:01 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:05:02 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	after_proverka_sa(t_A_stack **a, t_A_stack *t, int i)
@@ -25,7 +37,7 @@ int	checkAandPB(t_A_stack **a, t_A_stack **b, t_A_stack *t, int i)
 		{
 			if (check_a_false(a, i))
 			{
-				pb(a, b);
+				pb(a, b, 1);
 				s++;
 			}
 			else

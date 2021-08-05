@@ -1,49 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dublikat.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/04 15:05:22 by dflorenc          #+#    #+#             */
-/*   Updated: 2021/08/04 15:05:23 by dflorenc         ###   ########.fr       */
+/*   Created: 2021/08/04 15:10:16 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:10:17 by dflorenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	proverka_dubl(t_A_stack *ta, int t_i, int i)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	j;
+	size_t	i;
+	size_t	l;
+	size_t	b;
+	size_t	k;
 
-	j = 0;
-	while (ta && j < i)
+	i = 0;
+	l = ft_strlen(little);
+	b = ft_strlen(big);
+	if (little[i] == '\0')
+		return ((char *)big);
+	while (big[i] != '\0' && i < len)
 	{
-		if (ta->numb == t_i)
-			return (1);
-		ta = ta->nexta;
-		j++;
-	}
-	return (0);
-}
-
-void	dublikat(t_A_stack **a)
-{
-	t_A_stack	*te;
-	t_A_stack	*l;
-	int			i;
-	int			n;
-
-	te = *a;
-	i = 1;
-	te = te->nexta;
-	l = *a;
-	n = ft_lstsize(&l);
-	while (i < n)
-	{
-		if (proverka_dubl(*a, te->numb, i))
-			error (-1);
-		te = te->nexta;
+		k = 0;
+		if ((big[i] == little[k]) && ((i + l) <= len))
+		{
+			while ((k < l) && (big[i + k] == little[k]))
+			{
+				if ((k + 1) == l)
+					return ((char *)big + i);
+				k++;
+			}
+		}
 		i++;
 	}
+	return (0);
 }

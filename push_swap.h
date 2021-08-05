@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dflorenc <dflorenc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:10:02 by dflorenc          #+#    #+#             */
+/*   Updated: 2021/08/04 15:10:03 by dflorenc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
-//# include <fcntl.h>
-//# include <sys/types.h>
-//# include <sys/stat.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 typedef struct s_list
 {
@@ -34,16 +47,16 @@ t_A_stack	*ft_lstnew(int content);
 void		error(int i);
 void		ft_lstclear(t_A_stack **lst);
 void		sa(t_A_stack **a);
-void		sb(t_A_stack **b);
-void		ss(t_A_stack **a, t_A_stack **b);
-void		pb(t_A_stack **a, t_A_stack **b);
-void		pa(t_A_stack **a, t_A_stack **b);
+void		sb(t_A_stack **b, int i);
+void		ss(t_A_stack **a, t_A_stack **b, int i);
+void		pb(t_A_stack **a, t_A_stack **b, int i);
+void		pa(t_A_stack **a, t_A_stack **b, int i);
 void		rra(t_A_stack **a, int y);
 void		rrb(t_A_stack **b, int y);
-void		rrr(t_A_stack **a, t_A_stack **b);
+void		rrr(t_A_stack **a, t_A_stack **b, int i);
 void		ra(t_A_stack **a, int i);
 void		rb(t_A_stack **b, int i);
-void		rr(t_A_stack **a, t_A_stack **b);
+void		rr(t_A_stack **a, t_A_stack **b, int i);
 void		index_mas_A(t_A_stack **a);
 t_A_stack	*razmtka1(t_A_stack **a);
 void		raztka1_sa(t_A_stack **a, t_A_stack *t_mark);
@@ -62,8 +75,12 @@ int			checkAandPB(t_A_stack **a, t_A_stack **b, t_A_stack *t, int i);
 void		mall_free(char **res, int r);
 void		free_and_error(t_A_stack **a);
 void		free_mall_and_error(t_A_stack **a, char **mas_numb, int r);
-t_A_stack	*create_steakA(int argc, char **argv);
+t_A_stack	*create_steakA(int argc, char **argv, t_A_stack	**a);
 void		dublikat(t_A_stack **a);
 void		check_str_eof(char *str);
+int			get_next_line(char **line);
+char		*ft_strnstr(const char *big, const char *little, size_t len);
+void		ft_putstr_fd(char *s, int fd);
+void		free_line(char **line);
 
 #endif
